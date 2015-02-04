@@ -1,5 +1,15 @@
-<h1>My To-Do List</h1>
+<h1><%= @list.title %></h1>
 
- <% if @list.nil? %>
+ <% unless @list %>
    <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
- <% end %>
+ <% else %>
+  <div class="row">
+    <h2>Items</h2>
+      <div class='new-item'>
+        <%= render partial: 'items/form', locals: {list: @list} %>
+      </div>
+      <ul>
+        <%= render @list.items %>
+      </ul>
+  </div>
+<% end %>
