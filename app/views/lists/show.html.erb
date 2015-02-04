@@ -1,8 +1,7 @@
-<h1><%= @list.title %></h1>
-
  <% unless @list %>
-   <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
+   <%= link_to "Create New To-do List", new_list_path, class: 'btn btn-success' %>
  <% else %>
+ <h1><%= @list.title %></h1>
   <div class="row">
     <h2>Items</h2>
       <div class='new-item'>

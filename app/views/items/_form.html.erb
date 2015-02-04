@@ -1,9 +1,13 @@
 <% if current_user %>
   <h4>Add an item to the list:</h4>
+  <div class="form-group">
   <%= form_for [list, list.items.new] do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control', placeholder: "Enter To-Do" %>
+    </div>
+    <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success btn-sm' %>
+    </div>
   <% end %>
 <% end %>
 
