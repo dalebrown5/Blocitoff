@@ -20,19 +20,4 @@ class ListsController < ApplicationController
        render :new
      end
    end
-
-  def edit
-    @list = List.find(params[:id])
-  end
-
-  def update
-     @list = List.find(params[:id])
-     if @list.update_attributes(params.require(:list).permit(:title, :body))
-       flash[:notice] = "List was updated."
-       redirect_to @list
-     else
-       flash[:error] = "There was an error. Please try again."
-       render :edit
-     end
-   end
 end

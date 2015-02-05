@@ -6,6 +6,7 @@
     <h2>Items</h2>
       <div class='new-item'>
         <%= render partial: 'items/form', locals: {list: @list} %>
+        <%= link_to "", @item, method: :delete, class: 'glyphicon glyphicon-ok' %>
       </div>
       <ul>
         <%= render @list.items %>
