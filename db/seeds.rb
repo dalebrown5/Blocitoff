@@ -16,7 +16,7 @@ member = User.new(
   password: 'helloworld'
 )
 member.skip_confirmation!
-member.save
+member.save!
 
 
 # Create users
@@ -27,7 +27,7 @@ member.save
   password: Faker::Lorem.characters(10)
   )
   user.skip_confirmation!
-  user.save
+  user.save!
 end
 
 users = User.all
@@ -46,7 +46,7 @@ lists = List.all
 
 # Create Items
 lists.each do |list|
-  10.times do
+  30.times do
     Item.create!(
     list: list,
     name: Faker::Company.bs
