@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :find_list
 
   def create
-    @item = @list.items.build(params.require(:item).permit(:name))
+    @item = @list.items.build(item_params)
 
     unless @item.save
       flash[:error] = "There was an error. Please try again."
@@ -10,11 +10,9 @@ class ItemsController < ApplicationController
      redirect_to @list
   end
 
-  def delete
-    @list = List.find(params[:list_id])
-    @item = @list.item.find(params[:id])
-
-    if @item.delete
+  def destroy
+    @item = Item. find(params[:id])
+    if @item.destroy
       flash[:notice] = "Item was removed."
     else
       flash[:error] = "Item was not removed."
@@ -24,7 +22,12 @@ class ItemsController < ApplicationController
 
   private
 
+  def item_params
+    params.require(:item).permit(:name)
+  end
+
   def find_list
     @list = List.find(params[:list_id])
   end
+  
 end

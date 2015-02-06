@@ -41,6 +41,7 @@ users.each do |user|
   )
   end
 end
+
 lists = List.all
 
 # Create Items
@@ -52,6 +53,8 @@ lists.each do |list|
   )
   end
 end
+
+items = Item.all
 
 puts "Seed finished"
 puts "#{User.count} users created"
