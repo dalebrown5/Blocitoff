@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  respond_to :html, :js
   before_action :find_list
 
   def create
@@ -17,7 +18,10 @@ class ItemsController < ApplicationController
     else
       flash[:error] = "Item was not removed."
     end
-    redirect_to @list
+
+    respond_with(@item) do |format|
+      format.html { redirect_to [@list] }
+    end
   end
 
   private
