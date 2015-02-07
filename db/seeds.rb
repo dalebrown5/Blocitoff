@@ -10,6 +10,15 @@ admin.skip_confirmation!
 admin.save!
 
 # Create test member user
+moderator = User.new(
+  name:     'Moderator User',
+  email:    'moderator@example.com',
+  password: 'helloworld'
+)
+moderator.skip_confirmation!
+moderator.save!
+
+# Create test member user
 member = User.new(
   name:     'Member User',
   email:    'member@example.com',
@@ -50,7 +59,7 @@ lists.each do |list|
     Item.create!(
     list: list,
     name: Faker::Company.bs,
-    created_at: Faker::Date.backward(7) 
+    created_at: Faker::Date.backward(10) 
   )
   end
 end
