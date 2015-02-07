@@ -1,2 +1,4 @@
-<p><%= link_to "Delete", [@list,item], method: :delete %>
-  <%= item.name %></p>
+<div id="item-<%= item.id %>">
+  <p><%= link_to "Delete", [@list,item], method: :delete, remote: true %>
+    <%= item.name %></p>
+    </div>
