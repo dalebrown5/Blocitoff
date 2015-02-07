@@ -49,7 +49,8 @@ lists.each do |list|
   30.times do
     Item.create!(
     list: list,
-    name: Faker::Company.bs
+    name: Faker::Company.bs,
+    created_at: Faker::Date.backward(7) 
   )
   end
 end
