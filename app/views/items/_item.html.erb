@@ -1,5 +1,5 @@
-<div id="item-<%= item.id %>">
-  <p><%= link_to "Delete", [@list,item], method: :delete, remote: true %>
-    Days left <%= item.days_left %>
-    <%= item.name %></p>
-    </div>
+<tr id="item-<%= item.id %>">
+  <td class="action"><%= link_to "Complete", [@list,item], method: :delete, remote: true, class: 'btn btn-danger btn-sm' %></td>
+  <td class="name"><%= item.name %></td>
+  <td class="days"><%= item.days_left %></td>
+</tr>

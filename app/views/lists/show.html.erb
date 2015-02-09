@@ -1,15 +1,26 @@
  <% unless @list %>
    <%= link_to "Create New To-do List", new_list_path, class: 'btn btn-success' %>
  <% else %>
- <h1><%= @list.title %></h1>
+ <div class="well">
+    <h2><%= @list.title %></h2>
         <%= link_to "Delete List", list_path, method: :delete %>
+        <h4> Don't delay! All To-Do items will delete in 7 days! </h4>
+    </div>
   <div class="row">
-    <h2>Items</h2>
       <div class='new-item'>
         <%= render partial: 'items/form', locals: {list: @list} %> 
       </div>
-      <ul>
-        <%= render @list.items %>
-      </ul>
+       <table class="table table-bordered">
+        <thead>
+            <tr>
+              <th>Complete</th>
+              <th>Item's To-Do</th>
+              <th>Days Left</th>
+            </tr>
+        </thead>
+        <tbody>
+          <%= render @list.items %>
+        </tbody>
+      </table>
   </div>
 <% end %>
